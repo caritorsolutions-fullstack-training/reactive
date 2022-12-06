@@ -1,0 +1,88 @@
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.css" />
+
+<div class="container">
+<form action="/action_page.php" [formGroup]="reactiveForm" (ngSubmit)="onsubmitButtonClick()">
+  
+
+  <img src="../assets/caritor.jpg" style="height: 70px">
+  
+  <h2>Login</h2>
+
+ 
+<div class="input-container">
+      <i class="fa fa-user icon" style="margin-right: 1px;"></i>
+      <input type="text" name="firstname" placeholder="Username" autocomplete="off" class="fa fa-user icon" formControlName="firstname">
+      <div *ngIf="reactiveForm.get('firstname')?.valid && (!reactiveForm.get('firstname')?.['touched'])"></div>
+
+    <small *ngIf="reactiveForm.get('firstname')?.errors?.['required']" style="color: red;">this field is required</small>
+
+  <!-- <small *ngIf="reactiveForm.get('lastname')?.errors?.['noSpace']" style="color:red;">No space Allowed</small> -->
+
+
+    </div>
+
+ 
+<div class="input-container">
+  <i class="fas fa-lock" style="margin-right:1px;"></i>
+  <input type="text" placeholder="Password" formControlName="lastname">
+
+  <div *ngIf="reactiveForm.get('lastname')?.valid && (!reactiveForm.get('lastname')?.['touched'])"></div>
+
+
+  <small *ngIf="reactiveForm.get('lastname')?.errors?.['required']" style="color: red;">this field is required</small>
+
+  <!-- <small *ngIf="reactiveForm.get('lastname')?.errors?.['noSpace']" style="color:red;">No space Allowed</small> -->
+
+</div>
+
+
+<div class="gender">
+  <input type="radio" name="gender" value="Male">Male 
+  
+</div>
+
+<label class="gender">
+  <input type="radio" name="gender" value="Famale">Female
+</label> 
+
+
+<label value="country" class="fas fa-globe"><small>Select Your Country</small>
+<select name="country" formControlName="country">
+  <option value="India">India</option>
+  <option value="New-York">New-York</option>
+  <option value="England">England</option>
+  <option value="Brazil">Brazil</option>
+  <option value="Russia">Russia</option>
+  <option value="Japan">Japan</option>
+  <option value="Germany">Germany</option>
+  <option value="Vietnam">Vietnam</option>
+</select>
+</label>
+
+
+<label value="education" class="fas fa-graduation-cap"><small>Education</small>
+  <select name="education" formControlName="education">
+    <option value="MBA">MBA</option>
+    <option value="MCA">MCA</option>
+    <option value="BCA">BCA</option>
+    <option value="BSC">BSC</option>
+    <option value="B.COM">B.COM</option>
+    <option value="M.COM">M.COM</option>
+  </select>
+
+  </label>
+  
+
+<div class="input-container">
+  
+  <button class="reset" (click)="reset()">RESET </button>
+  <button type="submit" value="Login">SUBMIT</button>
+
+</div>
+
+
+</form>
+
+
+</div>
